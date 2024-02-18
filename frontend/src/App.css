@@ -1,0 +1,72 @@
+.App {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+header{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 230%;
+  font-weight: 800;
+  color: #0e3774;
+  padding-top: 4%;
+  text-shadow: 0 0 5px rgba(217, 222, 234, 0.112);
+
+}
+
+.App.dark {
+  background-color: #333;
+  color: #fff;
+  padding-bottom: 30%;
+}
+
+.App.light {
+  background-color: rgb(218, 178, 132);
+  color: #333;
+  padding-bottom: 30%;
+}
+
+.sidebar {
+  width: 230px;
+  height: 100vh; /* Set the height to 100% of the viewport height */
+  background-color: #000000d3;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.sidebar header {
+  font-size: 230%;
+  font-weight: 800;
+  margin: 10px;
+  color: #ffffff;
+  padding: 18px;
+}
+
+.sidebar ul {
+  list-style:none;
+  margin-top: 34%;
+  padding: 0px;
+}
+
+.sidebar li{
+  /* display:flex;
+  
+  display: flex; 
+  flex-direction: column; 
+   */
+   font-size: large;
+}
+
+.sidebar li a{
+  display:flex;
+  color: #fff;
+  padding: 10px 55px;
+  gap: 15px;
+  transition: all 0.5s;
+}
+
+.sidebar li a:hover {
+  background-color: #fff;
+  color: #000;
+  padding: 15px 35px;
+}

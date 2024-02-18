@@ -1,0 +1,57 @@
+.leaderboard {
+    font-family: Arial, sans-serif;
+    padding: 20px; /* Add padding to the section */
+}
+
+.leaderboard h1 {
+    font-weight: 700;
+    font-size: 30px; /* Adjust font size */
+    text-align: center;
+    margin: 10px 0; /* Adjust margin */
+}
+
+.leaderboard table {
+    width: 100%; /* Adjust width */
+    border-collapse: collapse;
+    margin-top: 10px; /* Add margin to the top */
+}
+
+.leaderboard table th, .leaderboard table td {
+    border: 3px solid #0000006e; /* Add border color */
+    border-radius: 2%;
+    padding: 8px;
+    text-align: left;
+}
+
+.leaderboard table th {
+    background-color: #7c6e6e;
+    color: white; /* Change text color */
+}
+
+.leaderboard div {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center; /* Center align buttons */
+}
+
+.leaderboard input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.leaderboard button {
+    background-color: #0000009a;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.leaderboard button:disabled {
+    background-color: #ddd;
+    color: #aaa;
+    cursor: not-allowed;
+}

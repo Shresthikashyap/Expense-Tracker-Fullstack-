@@ -1,0 +1,57 @@
+.downloads {
+    padding: 20px; /* Add padding */
+    padding-bottom: 90px;
+}
+
+.downloads h1 {
+    font-weight: 700;
+    font-size: 30px; /* Adjust font size */
+    margin: 20px 0; /* Adjust margin */
+    text-align: center;
+}
+
+.downloads ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+.downloads ul li {
+    margin-bottom: 10px; /* Add spacing between each download link */
+}
+
+.downloads ul li a {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #007bff; /* Change link color */
+    text-decoration: none;
+}
+
+.downloads ul li a:hover {
+    text-decoration: underline;
+}
+
+.downloads p {
+    text-align: center;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.downloads button {
+    display: block;
+    width: 20%;
+    padding: 10px;
+    margin: 20px auto; 
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* 
+.downloads button:hover {
+    background-color: #0056b3;
+} */

@@ -1,0 +1,40 @@
+/* Home.module.css */
+
+.home {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-bottom: 153px;
+}
+
+.home h1 {
+  font-weight: 700;
+  font-size: 80px;
+  margin-top: 40px;
+  margin-bottom: 1px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.home p {
+  padding-top: 3%;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.home button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.home button:hover {
+  background-color: #0056b3;
+}
+

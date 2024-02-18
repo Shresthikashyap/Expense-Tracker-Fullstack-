@@ -1,0 +1,73 @@
+.auth {
+    margin: 0px auto;
+    padding: 10px;
+  }
+  
+  .auth h1 { 
+    font-weight: 700;
+    font-size: 80px;
+    margin-top: 40px;
+    margin-bottom: 1px;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  .auth form{
+    max-width: 400px;
+    margin: 0px auto;
+    padding: 30px;
+    background-color: rgba(255, 249, 249, 0.58);
+    border: 2px solid #000000;
+    border-radius: 8px;
+  }
+
+  .auth label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .auth input[type="file"],
+  .auth input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .auth .profileImage {
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    margin-bottom: 16px; /* Add margin to separate from the file input */
+    margin-left: 87px;
+}
+  
+  .auth .control {
+    margin-bottom: 16px;
+  }
+  
+  .auth .action {
+    text-align: center;
+  }
+  
+  .auth .actions {
+    text-align: center;
+    margin-top: 16px;
+  }
+  
+  .auth .toggle {
+    background-color: #686767;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .auth .toggle:hover {
+    background-color: #000000;
+  }
+  

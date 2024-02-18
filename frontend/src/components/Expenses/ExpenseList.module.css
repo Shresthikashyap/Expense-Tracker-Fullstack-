@@ -1,0 +1,31 @@
+
+.expenselist section{
+    color: rgb(255, 255, 255);
+}
+
+.expenselist span{
+  font-size: larger;
+  font-weight: 600;
+}
+
+.expenselist ul{
+    list-style-type: none;
+}
+  
+.expenselist li {
+    margin-bottom: 8px;
+}
+  
+.expenselist button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+  
+  .expenselist button:hover {
+    background-color: #c82333;
+  }

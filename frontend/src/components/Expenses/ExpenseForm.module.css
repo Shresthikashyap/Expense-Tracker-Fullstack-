@@ -1,0 +1,40 @@
+
+
+.formbox {
+  background-color: #f0f0f05d;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding: 39px;
+  /* margin-left: 15%; */
+  margin-bottom: 5%;
+}
+
+.formbox label {
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: black;
+}
+
+.formbox input[type="number"],
+.formbox input[type="text"],
+.formbox select {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.formbox button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.formbox button[type="submit"]:hover {
+  background-color: #0056b3;
+}
