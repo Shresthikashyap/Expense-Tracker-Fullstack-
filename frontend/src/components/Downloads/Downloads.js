@@ -14,7 +14,7 @@ const Downloads = () => {
         const getDownloads = async () => {
             try {
                 
-                const response = await axios.get(`http://localhost:3001/downloadedFiles/all`, {
+                const response = await axios.get(`https://expense-tracker-fullstack-backend.onrender.com/downloadedFiles/all`, {
                     headers: {
                         'Authorization': token,
                         'Content-Type': 'application/json'
