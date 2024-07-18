@@ -23,7 +23,7 @@ const Premium = () => {
     const handleDownload = async () => {
         try {
             
-            const response = await axios.get('http://localhost:3001/user/download', { 
+            const response = await axios.get('https://expense-tracker-fullstack-backend.onrender.com/user/download', { 
                 headers: {
                     'Authorization': token,
                     'Content-Type': 'application/json'
@@ -54,7 +54,7 @@ const Premium = () => {
     const handleActivatePremium = async() => {
         try {
             console.log('here')
-            const response = await axios.get('http://localhost:3001/purchase/premiummembership',{ 
+            const response = await axios.get('https://expense-tracker-fullstack-backend.onrender.com/purchase/premiummembership',{ 
                 headers: {
                     'Authorization': token,
                     'Content-Type': 'application/json'
@@ -67,7 +67,7 @@ const Premium = () => {
     "order_id" :response.data.order.id,
     "handler" : async function(response){
       
-        await axios.post('http://localhost:3001/purchase/updatetransactionstatus',{
+        await axios.post('https://expense-tracker-fullstack-backend.onrender.com/purchase/updatetransactionstatus',{
             order_id : options.order_id,
             payment_id : response.razorpay_payment_id,
         },{ 
