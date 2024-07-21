@@ -20,7 +20,7 @@ const ForgetPassword = () => {
         setIsLoading(true);
 
         try {
-            const response = await axios.post('http://localhost:3001/password/forgotpassword',{email});
+            const response = await axios.post('https://expense-tracker-fullstack-backend.onrender.com/password/forgotpassword',{email});
             console.log(response)
             navigate('/');
 
