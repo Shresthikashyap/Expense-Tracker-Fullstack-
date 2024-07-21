@@ -9,7 +9,7 @@ const multer = require('multer')
 //const morgan = require('morgan');
 //const helmet = require('helmet')
 
-const errorController = require('./controllers/error');
+//const errorController = require('./controllers/error');
 
 const userRoutes = require('./routes/user');
 const premiumUser = require('./routes/premium');
@@ -34,7 +34,11 @@ app.use(cors({ origin: '*' }));
 //app.use(helmet());
 app.use(compression());
 //app.use(morgan('combined',{stream : accessLogStream}));
-//app.use(express.static('public'));
+app.use(express.static('public', { 
+    dotfiles: 'ignore', 
+    index: false,
+    extensions: ['html', 'htm'] 
+  }));
 console.log('here ****')
 
 app.use('/expense',expenseRoutes);
@@ -45,7 +49,7 @@ app.use('/premium',premiumUser);
 app.use('/password',resetPasswordRoutes);
 app.use('/download',downloadRoutes);
 app.use('/downloadedFiles',allDownloadedFiles);
-app.use('/*', errorController.get404);
+//app.use('/*', errorController.get404);
 app.use((req,res) => {
     console.log('Request url ',req.url);
     console.log('request is successful')
