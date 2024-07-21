@@ -40,7 +40,7 @@ const forgotpassword = async (req, res) => {
               textContent: 'We received a request to reset the password for your account. Please follow the link below to reset your password:',
               htmlContent: `<p>Hello,</p>
               <p>We received a request to reset the password for your account. Please follow the link below to reset your password:</p>
-              <p><a href="http://localhost:3001/password/resetpassword/${forgotpasswordid}">Reset Password</a></p><p>If you did not request this password reset, please ignore this email and contact us immediately.</p><p>Thank you,
+              <p><a href="https://expense-tracker-fullstack-backend.onrender.com/users/password/resetpassword/${forgotpasswordid}">Reset Password</a></p><p>If you did not request this password reset, please ignore this email and contact us immediately.</p><p>Thank you,
               </p><p>Expensify</p>`
           }
 
