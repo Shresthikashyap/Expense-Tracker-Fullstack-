@@ -9,11 +9,7 @@ const multer = require('multer')
 //const morgan = require('morgan');
 //const helmet = require('helmet')
 
-<<<<<<< HEAD
 //const errorController = require('./controllers/error');
-
-=======
->>>>>>> 38b4b7db37d83adc082d85ad4dd91755a2abf21f
 const userRoutes = require('./routes/user');
 const premiumUser = require('./routes/premium');
 const expenseRoutes = require('./routes/expense');
@@ -52,10 +48,7 @@ app.use('/premium',premiumUser);
 app.use('/password',resetPasswordRoutes);
 app.use('/download',downloadRoutes);
 app.use('/downloadedFiles',allDownloadedFiles);
-<<<<<<< HEAD
-//app.use('/*', errorController.get404);
-=======
->>>>>>> 38b4b7db37d83adc082d85ad4dd91755a2abf21f
+<<<<<<< HEAD//app.use('/*', errorController.get404);
 app.use((req,res) => {
     console.log('Request url ',req.url);
     console.log('request is successful')
