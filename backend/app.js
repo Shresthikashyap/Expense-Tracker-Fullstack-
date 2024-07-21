@@ -9,7 +9,7 @@ const multer = require('multer')
 //const morgan = require('morgan');
 //const helmet = require('helmet')
 
-const errorController = require('./controllers/error');
+const errorController = require('./controllers/error').default;
 
 const userRoutes = require('./routes/user');
 const premiumUser = require('./routes/premium');
@@ -45,7 +45,7 @@ app.use('/premium',premiumUser);
 app.use('/password',resetPasswordRoutes);
 app.use('/download',downloadRoutes);
 app.use('/downloadedFiles',allDownloadedFiles);
-app.use('/*',errorController.get404);
+app.use('/*', errorController.get404);
 app.use((req,res) => {
     console.log('Request url ',req.url);
     console.log('request is successful')
