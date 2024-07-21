@@ -23,7 +23,7 @@ const Premium = () => {
     const handleDownload = async () => {
         try {
             
-            const response = await axios.get('https://expense-tracker-fullstack-backend.onrender.com/user/download', { 
+            const response = await axios.get('https://expense-tracker-fullstack-lb10.onrender.com/user/download', { 
                 headers: {
                     'Authorization': token,
                     'Content-Type': 'application/json'
@@ -54,7 +54,7 @@ const Premium = () => {
     const handleActivatePremium = async() => {
         try {
             console.log('here')
-            const response = await axios.get('https://expense-tracker-fullstack-backend.onrender.com/purchase/premiummembership',{ 
+            const response = await axios.get('https://expense-tracker-fullstack-lb10.onrender.com/purchase/premium-membership',{ 
                 headers: {
                     'Authorization': token,
                     'Content-Type': 'application/json'
@@ -67,7 +67,7 @@ const Premium = () => {
     "order_id" :response.data.order.id,
     "handler" : async function(response){
       
-        await axios.post('https://expense-tracker-fullstack-backend.onrender.com/purchase/updatetransactionstatus',{
+        await axios.post('https://expense-tracker-fullstack-lb10.onrender.com/purchase/update-transactionstatus',{
             order_id : options.order_id,
             payment_id : response.razorpay_payment_id,
         },{ 
@@ -93,9 +93,10 @@ const Premium = () => {
 
     return (
         <div className={classes.premium}>
-            {!isPremium &&<>
-                 <p>Would you like to activate the premium</p>
-                 <button onClick={handleActivatePremium} >Activate Premium</button>
+            {!isPremium &&
+            <>
+                 <h5>Would you like to activate the premium</h5>
+                 <button onClick={handleActivatePremium}> Activate Premium </button>
             </>}
             {isPremium && 
                 <button onClick={handleDownload}>Download Expenses</button>      

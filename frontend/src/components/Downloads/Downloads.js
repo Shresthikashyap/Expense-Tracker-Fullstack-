@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from 'axios';
 import classes from './Downloads.module.css'
@@ -8,13 +9,14 @@ const Downloads = () => {
     const [downloads, setDownloads] = useState([]);
     const token = useSelector(state => state.auth.token);
     const isPremium = useSelector(state => state.premium.isPremium);
+    const navigate = useNavigate();
     //const [loading, setLoading] = useState(true); // Add loading state
 
     useEffect(() => {
         const getDownloads = async () => {
             try {
                 
-                const response = await axios.get(`https://expense-tracker-fullstack-backend.onrender.com/downloadedFiles/all`, {
+                const response = await axios.get(`https://expense-tracker-fullstack-lb10.onrender.com/downloadedFiles/all`, {
                     headers: {
                         'Authorization': token,
                         'Content-Type': 'application/json'
@@ -51,7 +53,10 @@ const Downloads = () => {
             </span>
             {isPremium && downloads.length===0 && <p>No Downloads</p>}
             {!isPremium && 
-            <div style={{margin:'20%', fontSize:'larger', fontWeight:'700'}}>You are not a premium member</div>
+            <>
+            <h5 style={{marginTop:'20%', fontSize:'larger', fontWeight:'700'}}>You are not a premium member</h5>
+            <button onClick={ ()=> navigate('/premium')}>Buy Premium</button>
+            </>
             }
         </section>
         </Card>

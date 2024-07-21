@@ -11,5 +11,8 @@
 }
 
 .premium button{
-    margin: 5%;
+    margin-top: 5%;
+    background-color: #0000009a;
+    color: white;
+    border-radius: 5px;
 }

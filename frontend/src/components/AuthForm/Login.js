@@ -35,7 +35,7 @@ const Login = () => {
         setError(null);
 
         if(enteredEmail !== null && enteredPassword !== null){
-            const response = await axios.post("https://expense-tracker-fullstack-backend.onrender.com/users/login", {
+            const response = await axios.post("https://expense-tracker-fullstack-lb10.onrender.com/users/login", {
                 email: enteredEmail,
                 password: enteredPassword
             }); 

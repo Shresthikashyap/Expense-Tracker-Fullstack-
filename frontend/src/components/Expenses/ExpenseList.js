@@ -13,7 +13,7 @@ const ExpenseList = ({ expenses, onDelete, onEdit }) => {
 
   const handlePremiumNavigation = () => {
       if (!isPremium) {
-          navigate('/leaderboard'); // Navigate to /leaderboard
+        navigate('/premium'); // Navigate to /leaderboard
       }
   };
 

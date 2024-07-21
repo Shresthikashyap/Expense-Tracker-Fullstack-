@@ -21,7 +21,7 @@ const Leaderboard = () => {
         const getLeaderBoard = async () => {
             try {
 
-                const response = await axios.get(`https://expense-tracker-fullstack-backend.onrender.com/premium/leadership?page=${page}&pageSize=${limit}`, { 
+                const response = await axios.get(`https://expense-tracker-fullstack-lb10.onrender.com/premium/leadership?page=${page}&pageSize=${limit}`, { 
                     headers: { 
                         'Authorization': token,
                         'Content-Type': 'application/json'
@@ -83,7 +83,11 @@ const Leaderboard = () => {
             </div>
             </span>)
             :
-            <button style={{margin:'20%'}}>Buy Premium</button>
+            <>
+            <h5 style={{marginTop:'20%'}}> Would you like to Buy Premium</h5>
+            <button onClick={ ()=> navigate('/premium')}>Buy Premium</button>
+            </>
+            
             }
         </section>
         </Card>

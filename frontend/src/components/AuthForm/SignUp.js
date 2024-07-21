@@ -31,7 +31,7 @@ const SignUp = () => {
                     password : enteredPassword
                 }
 
-                let response = await axios.post("https://expense-tracker-fullstack-backend.onrender.com/users/signup",userObj);
+                let response = await axios.post("https://expense-tracker-fullstack-lb10.onrender.com/users/signup",userObj);
                 console.log(response.data.token)
                 if(response.data.token){
                     alert('You successfully signed in')

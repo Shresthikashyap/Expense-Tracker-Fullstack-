@@ -40,7 +40,7 @@ const CompleteAuthForm = () => {
             formData.append('photo', enteredPhoto);
             formData.append('name', enteredFullname);
 
-            const response = await axios.post('https://expense-tracker-fullstack-backend.onrender.com/users/update-user', formData, {
+            const response = await axios.post('https://expense-tracker-fullstack-lb10.onrender.com/users/update-user', formData, {
                 headers: {
                     'Authorization': idToken,
                     'Content-Type': 'multipart/form-data'

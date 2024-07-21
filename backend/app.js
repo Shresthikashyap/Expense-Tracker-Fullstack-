@@ -34,11 +34,11 @@ app.use(cors({ origin: '*' }));
 //app.use(helmet());
 app.use(compression());
 //app.use(morgan('combined',{stream : accessLogStream}));
-app.use(express.static('public', { 
-    dotfiles: 'ignore', 
-    index: false,
-    extensions: ['html', 'htm'] 
-  }));
+// app.use(express.static('public', { 
+//     dotfiles: 'ignore', 
+//     index: false,
+//     extensions: ['html', 'htm'] 
+//   }));
 console.log('here ****')
 
 app.use('/expense',expenseRoutes);
