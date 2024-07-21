@@ -49,11 +49,13 @@ app.use((req,res) => {
     //res.sendFile(path.join(_dirname,`public/${req.url}`));
 })
 
+const port = process.env.PORT || 4000;
+
 mongoose.connect(process.env.MONGODB_URL,{ useNewUrlParser: true, useUnifiedTopology: true })
 .then(()=>{
     console.log('here')
-    app.listen(3001,()=>{
-        console.log('server is listening');
+    app.listen(port,()=>{
+        console.log('server is listening',port);
     })
 })
 .catch(err=>{
