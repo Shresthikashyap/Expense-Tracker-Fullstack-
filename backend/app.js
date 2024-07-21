@@ -9,7 +9,7 @@ const multer = require('multer')
 //const morgan = require('morgan');
 //const helmet = require('helmet')
 
-//const errorController = require('./controllers/error');
+const errorController = require('./controllers/error');
 
 const userRoutes = require('./routes/user');
 const premiumUser = require('./routes/premium');
@@ -49,18 +49,20 @@ app.use('/premium',premiumUser);
 app.use('/password',resetPasswordRoutes);
 app.use('/download',downloadRoutes);
 app.use('/downloadedFiles',allDownloadedFiles);
-//app.use('/*', errorController.get404);
+app.use('/*', errorController.get404);
 app.use((req,res) => {
     console.log('Request url ',req.url);
     console.log('request is successful')
     //res.sendFile(path.join(_dirname,`public/${req.url}`));
 })
 
+const port = process.env.PORT || 4000;
+
 mongoose.connect(process.env.MONGODB_URL,{ useNewUrlParser: true, useUnifiedTopology: true })
 .then(()=>{
     console.log('here')
-    app.listen(3001,()=>{
-        console.log('server is listening');
+    app.listen(port,()=>{
+        console.log('server is listening',port);
     })
 })
 .catch(err=>{
