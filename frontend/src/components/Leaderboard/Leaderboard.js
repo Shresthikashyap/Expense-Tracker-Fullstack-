@@ -21,7 +21,7 @@ const Leaderboard = () => {
         const getLeaderBoard = async () => {
             try {
 
-                const response = await axios.get(`https://expense-tracker-fullstack-lb10.onrender.com/premium/leadership?page=${page}&pageSize=${limit}`, { 
+                const response = await axios.get(`https://expense-tracker-fullstack-backend.onrender.com/premium/leadership?page=${page}&pageSize=${limit}`, { 
                     headers: { 
                         'Authorization': token,
                         'Content-Type': 'application/json'

@@ -10,7 +10,7 @@ const VerifyEmailButton = () => {
 
     const handleVerifyEmail = async () => {
         try {
-            const response = await axios.post('https://expense-tracker-fullstack-lb10.onrender.com/users/verifyemail',{},{ 
+            const response = await axios.post('https://expense-tracker-fullstack-backend.onrender.com/users/verifyemail',{},{ 
                 headers: { 
                     'Authorization': token,
                     'Content-Type': 'application/json' 
