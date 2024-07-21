@@ -93,10 +93,10 @@ const Premium = () => {
 
     return (
         <div className={classes.premium}>
-            {!isPremium &&<div>
+            {!isPremium &&<>
                  <p>Would you like to activate the premium</p>
                  <button onClick={handleActivatePremium} >Activate Premium</button>
-            </div>}
+            </>}
             {isPremium && 
                 <button onClick={handleDownload}>Download Expenses</button>      
             }

@@ -34,11 +34,11 @@ const Leaderboard = () => {
             }
         };
 
-        if(isPremium){
+        //if(isPremium){
             getLeaderBoard();
-        }else{
-            navigate('/premium')
-        }
+        //}else{
+        //     navigate('/premium')
+        // }
         
     }, [isPremium,navigate, page, limit, token]);
 
@@ -56,8 +56,10 @@ const Leaderboard = () => {
     return (
         <Card>
         <section className={classes.leaderboard}>
-            <h1>Leaderboard</h1>
-            <span>
+        
+        <h1>Leaderboard</h1>
+        {isPremium ?
+        (<span>
             <input type="number" value={limit} onChange={handleChangeLimit} />
             <table>
                 <thead>
@@ -80,7 +82,9 @@ const Leaderboard = () => {
                 <span>{page}/{Math.ceil(totalPages/limit)}</span>
                 <button disabled={((page * limit) >= totalPages)} onClick={() => handlePageChange(page + 1)}>{'>'}</button>
             </div>
-            </span>
+            </span>)
+            :
+            <button style={{margin:'20%'}}>Buy Premium</button>}
         </section>
         </Card>
     );

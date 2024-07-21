@@ -27,7 +27,7 @@ const CompleteAuthForm = () => {
 
     console.log('user.photo',user.photo)
     const photo = user.photo;
-    const [photoUrl, setPhotoUrl] = useState(photo?photo:defaultPic); // State to store the photo URL   
+    const [photoUrl, setPhotoUrl] = useState(!photo?defaultPic:photo); // State to store the photo URL   
 
     const onSubmitFormHandler = async(event) => {
         event.preventDefault();

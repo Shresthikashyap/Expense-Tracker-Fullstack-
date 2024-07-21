@@ -83,7 +83,7 @@ const Expense = () => {
     }
   };
 
-  const handleSubmitExpense = async expense => {
+  const handleSubmitExpense = async (expense) => {
     try {
       let response = null;
       if (Object.keys(editedExpense).length !== 0) {

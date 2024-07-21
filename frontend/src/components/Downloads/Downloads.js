@@ -50,7 +50,9 @@ const Downloads = () => {
             }
             </span>
             {isPremium && downloads.length===0 && <p>No Downloads</p>}
-            {!isPremium && <button style={{margin:'20%'}}>Buy Premium</button>}
+            {!isPremium && 
+            <div style={{margin:'20%', fontSize:'larger', fontWeight:'700'}}>You are not a premium member</div>
+            }
         </section>
         </Card>
     );

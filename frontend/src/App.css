@@ -13,18 +13,6 @@ header{
 
 }
 
-.App.dark {
-  background-color: #333;
-  color: #fff;
-  padding-bottom: 30%;
-}
-
-.App.light {
-  background-color: rgb(218, 178, 132);
-  color: #333;
-  padding-bottom: 30%;
-}
-
 .sidebar {
   width: 230px;
   height: 100vh; /* Set the height to 100% of the viewport height */

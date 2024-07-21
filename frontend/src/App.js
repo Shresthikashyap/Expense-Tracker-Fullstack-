@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Signup from './components/AuthForm/SignUp';
@@ -12,22 +12,20 @@ import './App.css';
 import { toggleTheme } from './store/ThemeSlice';
 import Premium from './components/Premium/Premium';
 import CompleteAuthForm from './components/CompleteProfile/CompleteAuthForm';
-import Downloads from './components/Downloads/Downloads'
+import Downloads from './components/Downloads/Downloads';
 
 function App() {
   const isAuth = useSelector(state => state.auth.isAuthenticated);
   const isDarkTheme = useSelector(state => state.theme.isDarkTheme);
   const dispatch = useDispatch();
+
   const handleLogout = () => {
-    // Handle logout logic here, such as clearing local storage or dispatching a logout action
     dispatch(logout());
-    if(isDarkTheme){
-      dispatch(toggleTheme())
+    if (isDarkTheme) {
+      dispatch(toggleTheme());
     }
-    // No need to redirect, the state change will trigger a re-render and show the login page
   };
 
-  // Define your left-side navigation links
   const navLinks = [
     { label: 'Home', path: '/home' },
     { label: 'Expenses', path: '/expenses' },
@@ -37,12 +35,22 @@ function App() {
     { label: 'LogOut', path: '/', onClick: handleLogout },
   ];
 
+  useEffect(() => {
+    const body = document.querySelector('body');
+    if (isDarkTheme) {
+      body.style.backgroundColor = '#333';
+      body.style.color = '#fff';
+    } else {
+      body.style.backgroundColor = 'rgb(218, 178, 132)';
+      body.style.color = '#333';
+    }
+  }, [isDarkTheme]);
+
   return (
     <Router>
-      <div className={`App ${isDarkTheme ? 'dark' : 'light'}`}>
+      <div>
         <div className="container">
           {!isAuth && <header>Expensify</header>}
-    
           {isAuth && (
             <nav className="sidebar">
               <header>Expensify</header>
@@ -55,14 +63,13 @@ function App() {
               </ul>
             </nav>
           )}
-
           <div className="main-content">
             <Routes>
               <Route path="/signup" element={<Signup />} />
               <Route path="/" element={<Login />} />
               <Route path="/home" element={<Home />} />
               <Route path="/downloads" element={<Downloads />} />
-              <Route path="/completeprofile" element={<CompleteAuthForm/>} />
+              <Route path="/completeprofile" element={<CompleteAuthForm />} />
               <Route path="/premium" element={<Premium />} />
               <Route path="/forgetpassword" element={<ForgetPassword />} />
               <Route path="/expenses" element={<Expenses />} />
@@ -74,6 +81,5 @@ function App() {
     </Router>
   );
 }
-
 
 export default App;

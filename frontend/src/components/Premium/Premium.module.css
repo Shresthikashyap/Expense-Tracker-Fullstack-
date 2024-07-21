@@ -1,8 +1,15 @@
-.premium div{
-    margin:0%
+.premium{
+    padding: 10%;
+    font-size: larger;
+    display: flex;
+    justify-content: center;
 }
 
 .premium p{
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 900;
+}
+
+.premium button{
+    margin: 5%;
 }
