@@ -46,7 +46,6 @@ const Leaderboard = () => {
         if(e.target.value >0 && (page * e.target.value)<=totalPages){
            setLimit(e.target.value); 
         }
-        
     };
 
     const handlePageChange = (newPage) => {
@@ -84,7 +83,8 @@ const Leaderboard = () => {
             </div>
             </span>)
             :
-            <button style={{margin:'20%'}}>Buy Premium</button>}
+            <button style={{margin:'20%'}}>Buy Premium</button>
+            }
         </section>
         </Card>
     );
