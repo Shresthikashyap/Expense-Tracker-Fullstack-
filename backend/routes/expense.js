@@ -10,5 +10,6 @@ router.get('/get-expenses',userauthentication.authenticate,expensecontroller.get
 router.get('/download',userauthentication.authenticate,expensecontroller.downloadExpenses);
 router.post('/update-expense/:id',userauthentication.authenticate,expensecontroller.updateExpense);
 router.delete('/delete-expense/:id',userauthentication.authenticate,expensecontroller.deleteExpense);
+router.post('/delete-expenses-bulk',userauthentication.authenticate,expensecontroller.deleteExpensesBulk);
 
 module.exports = router;
