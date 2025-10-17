@@ -151,6 +151,60 @@ const deleteExpense = async(req, res) => {
   }
 };
 
+
+const deleteExpensesBulk = async (req, res) => {
+  debugger;
+  try {
+    const { expenseIds } = req.body;
+    console.log('Bulk delete IDs:', expenseIds);
+
+    if (!expenseIds || !Array.isArray(expenseIds) || expenseIds.length === 0) {
+      return res.status(400).json({ err: 'Expense IDs array is required' });
+    }
+
+    // Find all expenses to calculate total amount to subtract
+    const expenses = await Expense.find({
+      _id: { $in: expenseIds },
+      userId: req.user._id
+    });
+
+    if (expenses.length === 0) {
+      return res.status(404).json({ err: 'No expenses found' });
+    }
+
+    // Calculate total amount to subtract
+    const totalAmountToSubtract = expenses.reduce((sum, expense) => {
+      return sum + Number(expense.amount);
+    }, 0);
+
+    // Delete all expenses
+    const deleteResult = await Expense.deleteMany({
+      _id: { $in: expenseIds },
+      userId: req.user._id
+    });
+
+    console.log(`Deleted ${deleteResult.deletedCount} expenses`);
+
+    // Update user's total expense
+    const newTotalExpense = Math.max(0, Number(req.user.totalExpense) - totalAmountToSubtract);
+    
+    await User.findOneAndUpdate(
+      { _id: req.user._id },
+      { totalExpense: newTotalExpense }
+    );
+
+    res.status(200).json({
+      total: newTotalExpense,
+      deletedCount: deleteResult.deletedCount,
+      success: true
+    });
+  } catch (err) {
+    console.error('Error in bulk delete:', err);
+    res.status(500).json({ error: err.message });
+  }
+};
+
+
 module.exports={
-  addExpense, getExpenses, downloadExpenses, updateExpense, deleteExpense
+  addExpense, getExpenses, downloadExpenses, updateExpense, deleteExpense, deleteExpensesBulk
 }
