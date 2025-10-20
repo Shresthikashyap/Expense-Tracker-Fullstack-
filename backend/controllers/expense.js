@@ -1,7 +1,8 @@
 const User = require('../models/user')
 const Expense = require('../models/Expense');
 const downloadedFile = require('../models/downloadedFile');
-const S3Service = require('../services/S3services')
+//const S3Service = require('../services/S3services');
+import { uploadToCloudinary } from '../services/CloudinaryService.js';
 //const UserServices = require('../services/userservices')
 
 
@@ -42,7 +43,7 @@ const getExpenses = async(req, res) => {
     //console.log(expenses) 
     
     const user = await User.findOne({_id: req.user._id});
-    //console.log('total  ',user)
+    console.log('total  ',user)
 
     res.status(200).send({ expenses, total:user.totalExpense, success: true });
   } 
@@ -66,8 +67,15 @@ const downloadExpenses = async(req,res) => {
     const userId = req.user._id;
 
     const fileName = `Expense${userId}/${new Date()}.txt`;   
+    const mimetype = req.file.mimetype;
+    console.log("File Name:", req.file.mimetype);
 
-    const fileUrl = await S3Service.uploadToS3(stringifiedExpenses, fileName);
+    // Upload to Cloudinary
+    const fileUrl = await uploadToCloudinary(stringifiedExpenses, fileName, mimetype);
+
+    console.log("Cloudinary File URL:", fileUrl);
+
+    // const fileUrl = await S3Service.uploadToS3(stringifiedExpenses, fileName);
     
     const file = new downloadedFile({ url: fileUrl, userId: userId});
     file.save();
@@ -150,7 +158,6 @@ const deleteExpense = async(req, res) => {
     res.status(500).json({ error: err });
   }
 };
-
 
 const deleteExpensesBulk = async (req, res) => {
   debugger;
