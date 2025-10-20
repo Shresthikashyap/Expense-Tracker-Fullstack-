@@ -1,7 +1,8 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
-const S3Service = require('../services/S3services')
+import { uploadToCloudinary } from '../services/CloudinaryService';
+// const S3Service = require('../services/S3services')
 const Sib = require('sib-api-v3-sdk');
 const validator = require('validator');
 
@@ -99,8 +100,10 @@ const updateUser = async (req, res) => {
     const photoBuffer = req.files.photo[0].buffer; // Access the photo file buffer
     const name = req.body.name;
     const fileName = req.files.photo[0].originalname;
+    const mimetype = req.files.photo[0].mimetype;
     
-    const fileUrl = await S3Service.uploadToS3(photoBuffer, fileName);
+    const fileUrl = await uploadToCloudinary(photoBuffer, fileName, mimetype);
+    // const fileUrl = await S3Service.uploadToS3(photoBuffer, fileName);
     console.log('file url ', fileUrl)
     const user = await User.findOne({ _id: req.user.id }); // Find user by their ID
     if (!user) {
